@@ -48,7 +48,7 @@ app.post("/deposit", verifyIfExistsAccountCPF, (req, res) => {
   const statementOperation = {
     description,
     amount,
-    created_at: Date.now(),
+    created_at: new Date(),
     type: "credit"
   }
 
@@ -57,7 +57,22 @@ app.post("/deposit", verifyIfExistsAccountCPF, (req, res) => {
 
 })
 
+app.get('/statement/date', verifyIfExistsAccountCPF, (req, res) => {
 
+  const { customer } = req;
+  const { date } = req.query;
+
+  const dateFormat = new Date(date + ' 00:00');
+  console.log(typeof (customer.statement[0].created_at));
+  const statement = customer.statement.filter(statement => statement.created_at.toDateString() === new Date(dateFormat).toDateString());
+
+  console.log(dateFormat);
+  console.log(statement.created_at);
+  // console.log(statement.created_at.toDateString());
+
+  return res.json(customer.statement);
+
+})
 
 
 app.listen(3333);
