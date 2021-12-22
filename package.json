@@ -1,0 +1,17 @@
+{
+  "author": {
+    "name": "Emerson Laranja",
+    "email": "emersonlaranja@gmail.com",
+    "url": "https://github.com/EmersonLaranja"
+  },
+  "name": "fundamentals-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
